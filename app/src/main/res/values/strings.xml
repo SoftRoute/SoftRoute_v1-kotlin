@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">SoftRoute_v1</string>
+    <string name="enter_your_credentias">Enter your credentias</string>
+    <string name="log_in">Log In</string>
+    <string name="enter_your_user">Enter your user</string>
+    <string name="enter_your_credentials">Please enter your credentials</string>
+    <string name="create_account">Create account</string>
+    <string name="signup">SignUp</string>
+    <string name="sing_up">Sing Up</string>
+    <string name="next">Next</string>
+    <string name="password">Password</string>
+    <string name="user">User</string>
+    <string name="enter_password">Enter password</string>
+    <string name="name_">Name</string>
+    <string name="phone_">Phone</string>
+    <string name="date_of_birth_">Date of birth</string>
+    <string name="create_a_shipment_">Create a shipment</string>
+    <string name="destination_">Destination</string>
+    <string name="address">Address</string>
+    <string name="sender_information">Sender Information</string>
+    <string name="name">Name</string>
+    <string name="consignee_information">Consignee Information</string>
+    <string name="nameConsignee">Name</string>
+    <string name="namesender_">Name</string>
+    <string name="identification_document_Consignee">Identification document</string>
+    <string name="view_shipment_status">View shipment status</string>
+    <string name="shipment_list">Shipment List</string>
+    <string name="coments">Coments</string>
+    <string name="weight">Weight</string>
+    <string name="quantity_">Quantity</string>
+    <string name="administrators_">Administrators</string>
+    <string name="client_">Client</string>
+    <string name="nav_mail_">thomyorke@radiohead.com</string>
+    <string name="nav_userName_">Thom Yorke</string>
+</resources>
