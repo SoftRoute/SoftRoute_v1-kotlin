@@ -3,12 +3,11 @@ package com.example.softroute_v1.admin
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.example.softroute_v1.R
-
-import com.example.softroute_v1.admin.navAdminHeader
+import com.example.softroute_v1.admin.comments.ViewCommentsActivity
 
 import com.example.softroute_v1.databinding.ActivityHomeAdminBinding
-import com.google.android.material.navigation.NavigationView
 
 class homeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeAdminBinding
@@ -25,22 +24,21 @@ class homeActivity : AppCompatActivity() {
         var userEmail=intent.getStringExtra(setData.userEmail)
 
         binding.homeName.text="holaaa ${userName}"
-
-
-
+        binding.btnComents.setOnClickListener { navigateToViewCommentsActivity() }
 
         showSelected()
+
     }
 
     fun showSelected(){
-
         binding.btnCreateShipment.setOnClickListener {
             startActivity(Intent(this, AddShipment::class.java))
             finish()
         }
-
-
-
-
+    }
+    private fun navigateToViewCommentsActivity(){
+        Log.i("Devs", "Navigating to ViewCommentsActivity")
+        val intent= Intent(this, ViewCommentsActivity::class.java)
+        startActivity(intent)
     }
 }

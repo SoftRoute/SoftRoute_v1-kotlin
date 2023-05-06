@@ -32,4 +32,5 @@
     <string name="client_">Client</string>
     <string name="nav_mail_">thomyorke@radiohead.com</string>
     <string name="nav_userName_">Thom Yorke</string>
+    <string name="comments">Comentarios</string>
 </resources>
