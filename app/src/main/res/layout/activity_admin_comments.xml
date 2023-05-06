@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".admin.ViewCommentsActivity">
+    tools:context=".admin.comments.ViewCommentsActivity">
 
     <TextView
         android:id="@+id/titleSection"
@@ -17,7 +17,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:text="@string/comments"/>
 
-    <include layout="@layout/comment_card" />
+    <androidx.recyclerview.widget.RecyclerView
+        app:layout_constraintTop_toTopOf="@id/titleSection"
+        android:layout_marginTop="100dp"
+        android:id="@+id/recyclerComment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

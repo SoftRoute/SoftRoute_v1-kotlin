@@ -4,8 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
 import com.example.softroute_v1.R
+import com.example.softroute_v1.admin.comments.ViewCommentsActivity
 
 import com.example.softroute_v1.databinding.ActivityHomeAdminBinding
 
@@ -38,7 +38,7 @@ class homeActivity : AppCompatActivity() {
     }
     private fun navigateToViewCommentsActivity(){
         Log.i("Devs", "Navigating to ViewCommentsActivity")
-        val intent= Intent(this,ViewCommentsActivity::class.java)
+        val intent= Intent(this, ViewCommentsActivity::class.java)
         startActivity(intent)
     }
 }
