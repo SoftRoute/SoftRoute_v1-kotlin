@@ -16,7 +16,6 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-
         binding = ActivityLoginBinding.inflate(layoutInflater)
         val view =binding.root
         setContentView(view)

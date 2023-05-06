@@ -13,7 +13,10 @@
         android:theme="@style/Theme.SoftRoute_v1"
         tools:targetApi="31">
         <activity
-            android:name=".navAdminHeader"
+            android:name=".admin.ViewCommentsActivity"
+            android:exported="false" />
+        <activity
+            android:name="navAdminHeader"
             android:exported="false" />
         <activity
             android:name=".client.homeClientActivity"
