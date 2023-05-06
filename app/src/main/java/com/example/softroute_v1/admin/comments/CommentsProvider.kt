@@ -19,6 +19,11 @@ class CommentsProvider {
                 "Marcelo",
                 "Normal servicio",
                 "Para ser la primera vez estuvo bien"
+            ),
+            Comment(
+                "Fiorella",
+                "Excelente servicio",
+                "Llegó mas rapido de lo que esperaba"
             )
 
         )
