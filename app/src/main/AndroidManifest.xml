@@ -19,7 +19,7 @@
             android:name=".client.CommentActivity"
             android:exported="false" />
         <activity
-            android:name=".navAdminHeader"
+            android:name=".admin.navAdminHeader"
             android:exported="false" />
         <activity
             android:name=".client.homeClientActivity"
@@ -29,6 +29,9 @@
             android:exported="false" />
         <activity
             android:name=".admin.AddShipment"
+            android:exported="false" />
+        <activity
+            android:name=".admin.comments.ViewCommentsActivity"
             android:exported="false" />
         <activity
             android:name=".admin.homeActivity"
