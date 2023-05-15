@@ -32,4 +32,8 @@
     <string name="client_">Client</string>
     <string name="nav_mail_">thomyorke@radiohead.com</string>
     <string name="nav_userName_">Thom Yorke</string>
+    <string name="agregar_comentario">Agregar Comentario</string>
+    <string name="ver_mis_comentarios">Ver mis comentarios</string>
+    <string name="comments_" />
+    <string name="comments">Comentarios</string>
 </resources>

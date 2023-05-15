@@ -13,7 +13,13 @@
         android:theme="@style/Theme.SoftRoute_v1"
         tools:targetApi="31">
         <activity
-            android:name=".navAdminHeader"
+            android:name=".client.CommentDetalisActivity"
+            android:exported="false" />
+        <activity
+            android:name=".client.CommentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.navAdminHeader"
             android:exported="false" />
         <activity
             android:name=".client.homeClientActivity"
@@ -23,6 +29,9 @@
             android:exported="false" />
         <activity
             android:name=".admin.AddShipment"
+            android:exported="false" />
+        <activity
+            android:name=".admin.comments.ViewCommentsActivity"
             android:exported="false" />
         <activity
             android:name=".admin.homeActivity"
