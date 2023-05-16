@@ -55,4 +55,6 @@
     <string name="admin_bottom_tracking">Tracking</string>
     <string name="admin_bottom_comments">Comments</string>
     <string name="admin_fragment_comments">Comments</string>
+    <string name="client_bottom_home">Home</string>
+    <string name="client_bottom_tracking">Tracking</string>
 </resources>

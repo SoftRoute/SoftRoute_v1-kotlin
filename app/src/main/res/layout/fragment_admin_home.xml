@@ -41,7 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="start"
-            app:headerLayout="@layout/activity_nav_admin_header"
+            app:headerLayout="@layout/admin_nav__header"
             app:itemIconTint="@color/purple_500"
             app:itemTextColor="@color/purple_500"
             app:menu="@menu/nav_menu" />

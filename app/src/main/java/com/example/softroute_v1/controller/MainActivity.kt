@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.softroute_v1.R
-import com.example.softroute_v1.controller.client.homeClientActivity
 
 import com.example.softroute_v1.databinding.ActivityMainBinding
 
@@ -29,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnClient.setOnClickListener{
-            startActivity(Intent(this, homeClientActivity::class.java))
+            startActivity(Intent(this, ClientActivity::class.java))
             finish()
         }
 
