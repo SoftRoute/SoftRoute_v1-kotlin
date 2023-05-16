@@ -1,4 +1,4 @@
-package com.example.softroute_v1.admin.comments
+package com.example.softroute_v1.controller.admin.comments
 
 class CommentsProvider {
 

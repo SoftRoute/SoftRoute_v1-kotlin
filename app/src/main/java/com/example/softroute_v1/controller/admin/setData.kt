@@ -1,4 +1,4 @@
-package com.example.softroute_v1.admin
+package com.example.softroute_v1.controller.admin
 
 object setData {
     const val userEmail:String="userEmail"

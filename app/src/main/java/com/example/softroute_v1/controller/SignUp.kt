@@ -1,11 +1,11 @@
-package com.example.softroute_v1
+package com.example.softroute_v1.controller
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.example.softroute_v1.admin.homeActivity
-import com.example.softroute_v1.admin.setData
+import com.example.softroute_v1.R
+import com.example.softroute_v1.controller.admin.setData
 
 import com.example.softroute_v1.databinding.ActivitySignUpBinding
 
@@ -39,7 +39,7 @@ class SignUp : AppCompatActivity() {
                 Toast.makeText(this, "Please fill the fields", Toast.LENGTH_SHORT).show()
             }else if(binding.inputName.text.toString().isNotEmpty()&&binding.inputPhone.text.toString().isNotEmpty()&&binding.inputEmail.text.toString().isNotEmpty()){
 
-                var intent=Intent(this, homeActivity::class.java)
+                var intent=Intent(this, AdminActivity::class.java)
 
 
                 intent.putExtra("${setData.name}",binding.inputName.text.toString())

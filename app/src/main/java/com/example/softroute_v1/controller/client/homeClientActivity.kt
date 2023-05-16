@@ -1,4 +1,4 @@
-package com.example.softroute_v1.client
+package com.example.softroute_v1.controller.client
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -31,7 +31,7 @@ class homeClientActivity : AppCompatActivity() {
 
     fun showNext(){
         binding.btnTracking.setOnClickListener{
-            startActivity(Intent(this,TrackingActivity::class.java))
+            startActivity(Intent(this, TrackingActivity::class.java))
         }
 
 

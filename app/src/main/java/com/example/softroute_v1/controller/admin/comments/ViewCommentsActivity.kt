@@ -1,4 +1,4 @@
-package com.example.softroute_v1.admin.comments
+package com.example.softroute_v1.controller.admin.comments
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,7 +7,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.softroute_v1.R
-import com.example.softroute_v1.admin.comments.adapter.CommentAdapter
+import com.example.softroute_v1.controller.admin.comments.adapter.CommentAdapter
 
 class ViewCommentsActivity : AppCompatActivity() {
 
@@ -25,7 +25,7 @@ class ViewCommentsActivity : AppCompatActivity() {
     private fun initRecyclerView(){
         val recyclerView=findViewById<RecyclerView>(R.id.recyclerComment)
         recyclerView.layoutManager=LinearLayoutManager(this)
-        recyclerView.adapter=CommentAdapter(CommentsProvider.commentsList)
+        recyclerView.adapter= CommentAdapter(CommentsProvider.commentsList)
 
     }
 }

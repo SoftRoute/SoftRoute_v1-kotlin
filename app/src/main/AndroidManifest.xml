@@ -13,40 +13,36 @@
         android:theme="@style/Theme.SoftRoute_v1"
         tools:targetApi="31">
         <activity
-            android:name=".client.CommentDetalisActivity"
+            android:name=".controller.client.CommentDetalisActivity"
             android:exported="false" />
         <activity
-            android:name=".client.CommentActivity"
+            android:name=".controller.client.CommentActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".controller.client.homeClientActivity"
             android:exported="false" />
         <activity
-            android:name=".admin.navAdminHeader"
+            android:name=".controller.client.TrackingActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".controller.admin.comments.ViewCommentsActivity"
             android:exported="false" />
         <activity
-            android:name=".client.homeClientActivity"
-            android:exported="false" />
-        <activity
-            android:name=".client.TrackingActivity"
-            android:exported="false" />
-        <activity
-            android:name=".admin.AddShipment"
-            android:exported="false" />
-        <activity
-            android:name=".admin.comments.ViewCommentsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".admin.homeActivity"
+            android:name=".controller.AdminActivity"
             android:exported="false"
             android:theme="@style/Theme.NoActionBar" />
         <activity
-            android:name=".SignUp"
+            android:name=".controller.SignUp"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".controller.LoginActivity"
             android:exported="false"
             android:theme="@style/Theme.NoActionBar"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".MainActivity"
+            android:name=".controller.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.NoActionBar"
             android:windowSoftInputMode="adjustResize">

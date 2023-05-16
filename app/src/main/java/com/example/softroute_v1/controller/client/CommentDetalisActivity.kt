@@ -1,4 +1,4 @@
-package com.example.softroute_v1.client
+package com.example.softroute_v1.controller.client
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

@@ -1,10 +1,10 @@
-package com.example.softroute_v1.admin.comments.adapter
+package com.example.softroute_v1.controller.admin.comments.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.softroute_v1.R
-import com.example.softroute_v1.admin.comments.Comment
+import com.example.softroute_v1.controller.admin.comments.Comment
 
 class CommentAdapter(private val commentsList:List<Comment>) : RecyclerView.Adapter<CommentViewHolder>() {
 
