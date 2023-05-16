@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/bottom_admin_home"
+        android:title="@string/admin_bottom_home"
+        android:icon="@drawable/baseline_home_24"/>
+
+    <item
+        android:id="@+id/bottom_admin_add_shipment"
+        android:title="@string/admin_bottom_add_shipment"
+        android:icon="@drawable/baseline_add_to_photos_24"
+        />
+
+    <item
+        android:id="@+id/bottom_admin_tracking"
+        android:title="@string/admin_bottom_tracking"
+        android:icon="@drawable/baseline_airport_shuttle_24" />
+
+
+</menu>
