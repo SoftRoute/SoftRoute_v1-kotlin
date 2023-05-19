@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.util.Log
 import com.example.softroute_v1.R
 import com.example.softroute_v1.admin.comments.ViewCommentsActivity
-import com.example.softroute_v1.admin.listRegister.ViewListRegisterActivity
 
 import com.example.softroute_v1.databinding.ActivityHomeAdminBinding
 
@@ -26,7 +25,7 @@ class homeActivity : AppCompatActivity() {
 
         binding.homeName.text="holaaa ${userName}"
         binding.btnComents.setOnClickListener { navigateToViewCommentsActivity() }
-        binding.btnShipmentList.setOnClickListener { navigateToViewListRegisterActivity()}
+
 
         showSelected()
 
@@ -43,9 +42,5 @@ class homeActivity : AppCompatActivity() {
         val intent= Intent(this, ViewCommentsActivity::class.java)
         startActivity(intent)
     }
-    private fun navigateToViewListRegisterActivity(){
-        Log.i("Devs", "Navigating to ViewListRegisterActivity")
-        val intent= Intent(this, ViewListRegisterActivity::class.java)
-        startActivity(intent)
-    }
+
 }
