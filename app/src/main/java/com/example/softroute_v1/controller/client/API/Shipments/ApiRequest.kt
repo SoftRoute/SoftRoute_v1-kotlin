@@ -1,4 +1,4 @@
-package com.example.softroute_v1.controller.client.API
+package com.example.softroute_v1.controller.client.API.Shipments
 
 import retrofit2.http.GET
 import retrofit2.http.Path
