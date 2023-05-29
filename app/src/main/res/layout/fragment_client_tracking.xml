@@ -1,32 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    tools:context=".controller.fragments.client.ClientTrackingFragment"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.fragments.client.ClientTrackingFragment"
     android:orientation="vertical"
     android:padding="20dp">
-
-    <!-- TODO: Update blank fragment layout -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="90dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/input_user"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Tracking code"
-            android:textColorHint="@color/teal_700"
-            />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <View
-        android:layout_width="0dp"
-        android:layout_height="30dp"/>
 
     <Button
         android:id="@+id/next"
@@ -36,4 +16,25 @@
         android:layout_height="wrap_content"
         android:gravity="center"/>
 
-</FrameLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/input_user_code_tracking"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tracking code"
+            android:textColorHint="@color/teal_700"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <include
+        layout="@layout/shipment_card"/>
+
+
+
+</LinearLayout>

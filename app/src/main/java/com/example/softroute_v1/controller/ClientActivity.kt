@@ -6,6 +6,7 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.softroute_v1.R
+import com.example.softroute_v1.controller.fragments.client.ClientAddCommentFragment
 
 import com.example.softroute_v1.controller.fragments.client.ClientCommentListFragment
 import com.example.softroute_v1.controller.fragments.client.ClientHomeFragment

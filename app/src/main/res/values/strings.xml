@@ -57,4 +57,11 @@
     <string name="admin_fragment_comments">Comments</string>
     <string name="client_bottom_home">Home</string>
     <string name="client_bottom_tracking">Tracking</string>
+    <string name="situacion">Situación:</string>
+    <string name="detalle_de_envio">Detalle de Envío</string>
+    <string name="codigo">Código:</string>
+    <string name="fecha_recepcion">Fecha Recepcion:</string>
+    <string name="fecha_envio">Fecha Envío:</string>
+    <string name="fecha_entrega">Fecha Entrega:</string>
+    <string name="entregado">Entregado:</string>
 </resources>

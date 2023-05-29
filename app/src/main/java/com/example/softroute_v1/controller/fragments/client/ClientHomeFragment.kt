@@ -1,10 +1,11 @@
 package com.example.softroute_v1.controller.fragments.client
-
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import com.example.softroute_v1.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -33,9 +34,16 @@ class ClientHomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
+
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_client_home, container, false)
+
+        val view = inflater.inflate(R.layout.fragment_client_home, container, false)
+
+        // Obtener las referencias a los botones después de inflar el diseño
+        val buttonTracking= view.findViewById<Button>(R.id.btnTracking)
+        val buttonLeaveComment = view.findViewById<Button>(R.id.btnCreateComent)
+
+        return view
     }
 
     companion object {
