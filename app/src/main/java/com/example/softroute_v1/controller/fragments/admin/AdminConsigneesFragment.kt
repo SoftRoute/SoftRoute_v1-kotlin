@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.compose.ui.input.key.Key.Companion.I
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -23,16 +24,6 @@ import kotlinx.coroutines.withContext
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [AdminConsigneesFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class AdminConsigneesFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,6 +41,7 @@ class AdminConsigneesFragment : Fragment() {
             try {
                 val consigneeList = makeConsigneesApiRequest()
                 withContext(Dispatchers.Main) {
+
                     if (consigneeList.isNotEmpty()) {
 
                         //Tenemos la lista , aquí entonces pintariamos toda la morisqueta
@@ -95,6 +87,14 @@ class AdminConsigneesFragment : Fragment() {
         recyclerView?.layoutManager=LinearLayoutManager(requireContext())
         recyclerView?.adapter=ConsigneeAdapter(listConsignee)
 
+        val adapter = ConsigneeAdapter(listConsignee)
+        adapter.onButtonClick = { consignee ->
+            // Acciones a realizar cuando se haga clic en el botón en el adaptador
+            // Aquí puedes utilizar el objeto Consignee que se pasa como parámetro
+            Toast.makeText(requireContext(), "Clic en botón: ${consignee.name}", Toast.LENGTH_SHORT).show()
+            Log.v("TOASTCONSIGNEE", "{${consignee.name}}")
+            // También puedes navegar a otro fragmento u realizar otras operaciones
+        }
     }
 
 

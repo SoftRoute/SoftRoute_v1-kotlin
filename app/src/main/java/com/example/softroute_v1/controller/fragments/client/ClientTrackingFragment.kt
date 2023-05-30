@@ -75,6 +75,12 @@ class ClientTrackingFragment : Fragment() {
                                 shipmentData = shipmentList[0]
                                 val delivery=getDeliveryByShipmentId(shipmentData.id)
                                 val consignee=getConsigneeById(shipmentData.consigneesId.toString())
+
+                                Log.v("SHIPMENT","$shipmentData")
+                                Log.v("Delivery","$delivery")
+                                Log.v("Consignee","$consignee")
+
+
                                 if (delivery != null) updateShipmentCard(delivery,consignee)
 
                                 shipmentCardLayout.visibility = View.VISIBLE
@@ -151,7 +157,7 @@ class ClientTrackingFragment : Fragment() {
         return consignees.firstOrNull() // Devuelve el primer consignee si está disponible, de lo contrario, devuelve null
     }
 
-    private suspend fun getDeliveryByShipmentId(shipmentId: Int): Delivery? {
+    private suspend fun getDeliveryByShipmentId(shipmentId: Int): Delivery? { // /{byShipmentId}
         val deliveryList = makeDeliveryApiRequest()
 
         // Filtrar la lista de entregas por shipmentId
