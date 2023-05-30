@@ -7,7 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.softroute_v1.R
+import com.example.softroute_v1.controller.retrofitApiConsume.Consignees.adapter.ConsigneeAdapter
 import com.example.softroute_v1.controller.retrofitApiConsume.Consignees.service.ConsigneeApiService
 import com.example.softroute_v1.controller.retrofitApiConsume.Consignees.model.Consignee
 import com.example.softroute_v1.controller.retrofitApiConsume.Constants.Constants
@@ -56,6 +61,8 @@ class AdminConsigneesFragment : Fragment() {
 
                         //Tenemos la lista , aquí entonces pintariamos toda la morisqueta
                         Log.v("PRINT",consigneeList.toString())
+                        initRecyclerView(consigneeList)
+
                         Toast.makeText(requireContext(), "Toasst", Toast.LENGTH_SHORT).show()
                     }else{
                         Toast.makeText(requireContext(), "Toasst", Toast.LENGTH_SHORT).show()
@@ -108,6 +115,13 @@ class AdminConsigneesFragment : Fragment() {
             Log.e("AdminCosigneesFragment", "Error en la solicitud de la API: ${e.message}", e)
             emptyList()
         }
+    }
+
+    private fun initRecyclerView(listConsignee: List<Consignee>){
+        val recyclerView = view?.findViewById<RecyclerView>(R.id.recyclerConsignees)
+        recyclerView?.layoutManager=LinearLayoutManager(requireContext())
+        recyclerView?.adapter=ConsigneeAdapter(listConsignee)
+
     }
 
 

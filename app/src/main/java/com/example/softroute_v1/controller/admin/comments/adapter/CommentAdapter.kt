@@ -10,7 +10,7 @@ class CommentAdapter(private val commentsList:List<Comment>) : RecyclerView.Adap
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CommentViewHolder {
         val layoutInflater=LayoutInflater.from(parent.context)
-        return CommentViewHolder(layoutInflater.inflate(R.layout.comment_card,parent,false))
+        return CommentViewHolder(layoutInflater.inflate(R.layout.item_comment,parent,false))
     }
 
     override fun getItemCount(): Int {

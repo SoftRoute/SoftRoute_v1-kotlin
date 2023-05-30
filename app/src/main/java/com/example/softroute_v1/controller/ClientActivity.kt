@@ -21,13 +21,6 @@ class ClientActivity : AppCompatActivity() {
     private val onNavigationItemSelectedListener= BottomNavigationView.
     OnNavigationItemSelectedListener{item->navigateTo(item)}
 
-/*    private fun navigateTo(item: MenuItem):Boolean{
-        item.isChecked=true
-        return supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.flFragment,getFragmentFor(item))
-            .commit()>0
-    }*/
     private fun navigateTo(item: MenuItem): Boolean {
     item.isChecked = true
     val fragment = getFragmentFor(item)

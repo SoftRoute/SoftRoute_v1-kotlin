@@ -35,7 +35,7 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <include layout="@layout/shipment_card"/>
+    <include layout="@layout/item_shipment"/>
 
     <LinearLayout
         android:layout_width="match_parent"

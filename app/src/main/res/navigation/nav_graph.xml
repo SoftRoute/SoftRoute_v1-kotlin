@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph">
+
+
+    <fragment
+        android:id="@+id/adminEditConsigneeFragment"
+        android:name="com.example.softroute_v1.controller.fragments.admin.AdminEditConsigneeFragment"
+        android:label="Admin Edit Consignee Fragment"
+        tools:layout="@layout/fragment_admin_edit_consignee">
+        <argument
+            android:name="consignee"
+            app:argType="com.example.softroute_v1.controller.retrofitApiConsume.Consignees.model.Consignee" />
+    </fragment>
+
+
+
+
+</navigation>
