@@ -64,4 +64,6 @@
     <string name="fecha_envio">Fecha Envío:</string>
     <string name="fecha_entrega">Fecha Entrega:</string>
     <string name="entregado">Entregado:</string>
+    <string name="consignees_list">Consignees List</string>
+    <string name="senders_list">Senders List</string>
 </resources>

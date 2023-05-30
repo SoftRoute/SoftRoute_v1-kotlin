@@ -33,6 +33,8 @@ class AdminHomeFragment : Fragment() {
         val btnViewShipment = view.findViewById<Button>(R.id.btnViewShipment)
         val btnShipmentList = view.findViewById<Button>(R.id.btnShipmentList)
         val btnComents = view.findViewById<Button>(R.id.btnComents)
+        val btnConsignessList=view.findViewById<Button>(R.id.btnConsigneesList)
+        val btnSendersList=view.findViewById<Button>(R.id.btnSenderList)
 
         btnCreateShipment.setOnClickListener {
             val fragment = AdminAddShipmentFragment()
@@ -57,6 +59,20 @@ class AdminHomeFragment : Fragment() {
 
         btnComents.setOnClickListener {
             val fragment = AdminCommentsFragment()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.flFragment, fragment)
+                .commit()
+        }
+
+        btnConsignessList.setOnClickListener{
+            val fragment = AdminConsigneesFragment()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.flFragment, fragment)
+                .commit()
+        }
+
+        btnSendersList.setOnClickListener{
+            val fragment = AdminSendersListFragment()
             parentFragmentManager.beginTransaction()
                 .replace(R.id.flFragment, fragment)
                 .commit()
