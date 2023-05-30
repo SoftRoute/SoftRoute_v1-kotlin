@@ -21,7 +21,7 @@
     <string name="name">Name</string>
     <string name="consignee_information">Consignee Information</string>
     <string name="nameConsignee">Name</string>
-    <string name="namesender_">Name</string>
+    <string name="nameSender">Name</string>
     <string name="identification_document_Consignee">Identification document</string>
     <string name="view_shipment_status">View shipment status</string>
     <string name="shipment_list">Shipment List</string>
@@ -68,4 +68,14 @@
     <string name="senders_list">Senders List</string>
     <string name="type_of_package">Type of package</string>
     <string name="freight">freight</string>
+    <string name="description">Description</string>
+    <string name="emailSender">Identification document</string>
+    <string name="emailconsignee">emailConsignee</string>
+    <string name="email_consignee">Email</string>
+    <string name="emailsender">Email</string>
+    <string name="consigneeDNI">DNI</string>
+    <string name="typeDocument">Type</string>
+    <string name="destination">Destination</string>
+    <string name="date">Date</string>
+    <string name="dateShipment">Date</string>
 </resources>
