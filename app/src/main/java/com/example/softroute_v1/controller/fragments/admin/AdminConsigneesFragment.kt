@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.compose.ui.input.key.Key.Companion.I
 import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -86,18 +87,6 @@ class AdminConsigneesFragment : Fragment() {
         val recyclerView = view?.findViewById<RecyclerView>(R.id.recyclerConsignees)
         recyclerView?.layoutManager=LinearLayoutManager(requireContext())
         recyclerView?.adapter=ConsigneeAdapter(listConsignee)
-
-        val adapter = ConsigneeAdapter(listConsignee)
-        adapter.onButtonClick = { consignee ->
-            // Acciones a realizar cuando se haga clic en el botón en el adaptador
-            // Aquí puedes utilizar el objeto Consignee que se pasa como parámetro
-            Toast.makeText(requireContext(), "Clic en botón: ${consignee.name}", Toast.LENGTH_SHORT).show()
-            Log.v("TOASTCONSIGNEE", "{${consignee.name}}")
-            // También puedes navegar a otro fragmento u realizar otras operaciones
-        }
     }
-
-
-
 
 }
