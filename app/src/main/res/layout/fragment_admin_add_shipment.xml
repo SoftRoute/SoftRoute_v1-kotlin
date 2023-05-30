@@ -22,6 +22,19 @@
             android:orientation="vertical"
             android:padding="7dp">
 
+            <!-- Package informaction -->
+            <TextView
+                android:id="@+id/tvPackageInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Package information"
+                android:textStyle="bold"
+                android:textColor="@color/teal_700"
+                android:gravity="left"
+                android:textSize="20sp"
+                android:padding="10dp"
+                />
+
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
@@ -29,10 +42,10 @@
                 android:layout_marginTop="10dp">
 
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/input_destination"
+                    android:id="@+id/inputPackagingType"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/destination_"
+                    android:hint="@string/type_of_package"
                     android:textColorHint="#837D7D" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -44,11 +57,44 @@
                 android:layout_marginTop="10dp">
 
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/input_address"
+                    android:id="@+id/inputWeight"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/address"
-                    android:textColorHint="#837D7D" />
+                    android:hint="@string/weight"
+                    android:textColorHint="#837D7D"
+                    android:inputType="number" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/inputQuantity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/quantity_"
+                    android:textColorHint="#837D7D"
+                    android:inputType="number" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/inputFreight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Freight"
+                    android:textColorHint="#837D7D"
+                    android:inputType="number"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -136,18 +182,6 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <TextView
-                android:id="@+id/tvPackageInfo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Package information"
-                android:textStyle="bold"
-                android:textColor="@color/teal_700"
-                android:gravity="left"
-                android:textSize="20sp"
-                android:padding="10dp"
-                />
-
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
@@ -155,10 +189,10 @@
                 android:layout_marginTop="10dp">
 
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/inputPackagingType"
+                    android:id="@+id/input_destination"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Packaging Type"
+                    android:hint="@string/destination_"
                     android:textColorHint="#837D7D" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -170,28 +204,19 @@
                 android:layout_marginTop="10dp">
 
                 <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/inputWeight"
+                    android:id="@+id/input_address"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/weight"
+                    android:hint="@string/address"
                     android:textColorHint="#837D7D" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
 
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/inputQuantity"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/quantity_"
-                    android:textColorHint="#837D7D" />
 
-            </com.google.android.material.textfield.TextInputLayout>
+
+
+
 
             <LinearLayout
                 android:orientation="horizontal"

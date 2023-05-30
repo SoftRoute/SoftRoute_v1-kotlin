@@ -66,4 +66,6 @@
     <string name="entregado">Entregado:</string>
     <string name="consignees_list">Consignees List</string>
     <string name="senders_list">Senders List</string>
+    <string name="type_of_package">Type of package</string>
+    <string name="freight">freight</string>
 </resources>
