@@ -29,7 +29,6 @@ class LoginActivity : AppCompatActivity() {
             }else if(binding.inputUser.text.toString().isNotEmpty()&&binding.inputPassword.text.toString().isNotEmpty())
             {
                 var intent=Intent(this, AdminActivity::class.java)
-/*                intent.putExtra("${setData.name}",binding.inputUser.text.toString())*/
                 startActivity(intent)
                 finish()
 

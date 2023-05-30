@@ -41,9 +41,9 @@ class SignUp : AppCompatActivity() {
                 var intent=Intent(this, AdminActivity::class.java)
 
 
-/*                intent.putExtra("${setData.name}",binding.inputName.text.toString())
-                intent.putExtra("${setData.phone}",binding.inputPhone.text.toString())
-                intent.putExtra("${setData.userEmail}",binding.inputEmail.text.toString())*/
+//                intent.putExtra("${setData.name}",binding.inputName.text.toString())
+//                intent.putExtra("${setData.phone}",binding.inputPhone.text.toString())
+//                intent.putExtra("${setData.userEmail}",binding.inputEmail.text.toString())
 
                 startActivity(intent)
                 finish()
