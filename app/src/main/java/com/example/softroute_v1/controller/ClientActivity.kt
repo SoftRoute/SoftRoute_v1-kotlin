@@ -21,35 +21,38 @@ class ClientActivity : AppCompatActivity() {
     private val onNavigationItemSelectedListener= BottomNavigationView.
     OnNavigationItemSelectedListener{item->navigateTo(item)}
 
-    private fun navigateTo(item: MenuItem):Boolean{
+/*    private fun navigateTo(item: MenuItem):Boolean{
         item.isChecked=true
         return supportFragmentManager
             .beginTransaction()
             .replace(R.id.flFragment,getFragmentFor(item))
             .commit()>0
+    }*/
+    private fun navigateTo(item: MenuItem): Boolean {
+    item.isChecked = true
+    val fragment = getFragmentFor(item)
+    supportFragmentManager.beginTransaction()
+        .replace(R.id.flFragment, fragment)
+        .commit()
+    return true
     }
+
     private fun getFragmentFor(item: MenuItem): Fragment {
-        return when(item.itemId){
-            R.id.bottom_client_home-> ClientHomeFragment()
-            R.id.bottom_client_tracking-> ClientTrackingFragment()
-            R.id.bottom_client_comment->ClientCommentListFragment()
+        return when (item.itemId) {
+            R.id.bottom_client_home -> ClientHomeFragment()
+            R.id.bottom_client_tracking -> ClientTrackingFragment()
+            R.id.bottom_client_comment -> ClientCommentListFragment()
             else -> ClientHomeFragment()
         }
-
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_client)
-
         binding = ActivityClientBinding.inflate(layoutInflater)
-        val view =binding.root
+        val view = binding.root
         setContentView(view)
 
-        val navView: BottomNavigationView =findViewById(R.id.bnvMenuClient )
+        val navView: BottomNavigationView = findViewById(R.id.bnvMenuClient)
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
         navigateTo(navView.menu.findItem(R.id.bottom_client_home))
-
-
     }
-
 }

@@ -1,10 +1,11 @@
-package com.example.softroute_v1.controller.client.API.Deliveries
+package com.example.softroute_v1.controller.retrofitApiConsume.Deliveries.service
 
 
+import com.example.softroute_v1.controller.retrofitApiConsume.Deliveries.model.Delivery
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-interface ApiRequestDelivery {
+interface DeliveryApiService {
 
     @GET("deliveries")
     suspend fun getDeliveries():List<Delivery>

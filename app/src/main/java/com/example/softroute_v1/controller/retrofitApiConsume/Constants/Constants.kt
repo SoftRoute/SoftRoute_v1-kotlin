@@ -1,4 +1,4 @@
-package com.example.softroute_v1.controller.client.shipments.util
+package com.example.softroute_v1.controller.retrofitApiConsume.Constants
 
 class Constants {
     companion object{

@@ -8,9 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.softroute_v1.R
-import com.example.softroute_v1.controller.client.API.Consignees.ApiRequestConsignee
-import com.example.softroute_v1.controller.client.API.Consignees.Consignee
-import com.example.softroute_v1.controller.client.shipments.util.Constants
+import com.example.softroute_v1.controller.retrofitApiConsume.Consignees.service.ConsigneeApiService
+import com.example.softroute_v1.controller.retrofitApiConsume.Consignees.model.Consignee
+import com.example.softroute_v1.controller.retrofitApiConsume.Constants.Constants
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -89,20 +89,28 @@ class AdminConsigneesFragment : Fragment() {
             }
     }
 
-    private suspend fun makeConsigneesApiRequest():List<Consignee>{
-        return try{
-            val api= Retrofit.Builder()
+    private suspend fun makeConsigneesApiRequest(): List<Consignee> {
+        return try {
+            val api = Retrofit.Builder()
                 .baseUrl(Constants.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
-                .create(ApiRequestConsignee::class.java)
-            api.getConsignees()
+                .create(ConsigneeApiService::class.java)
 
-        }catch (e:Exception){
+            val consigneesResponse = api.getConsignees() // Realiza la llamada a la API y obtiene el objeto ConsigneesResponse
+
+            if(consigneesResponse.isNotEmpty()){
+                return consigneesResponse
+            }
+
+            return emptyList()
+        } catch (e: Exception) {
             Log.e("AdminCosigneesFragment", "Error en la solicitud de la API: ${e.message}", e)
             emptyList()
         }
     }
+
+
 
 
 }

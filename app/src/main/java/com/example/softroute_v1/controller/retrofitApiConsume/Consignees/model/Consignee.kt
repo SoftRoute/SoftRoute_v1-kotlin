@@ -1,4 +1,4 @@
-package com.example.softroute_v1.controller.client.API.Consignees
+package com.example.softroute_v1.controller.retrofitApiConsume.Consignees.model
 
 data class Consignee (
     val id: Int,

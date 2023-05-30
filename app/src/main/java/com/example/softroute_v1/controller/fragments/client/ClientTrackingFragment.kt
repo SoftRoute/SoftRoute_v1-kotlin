@@ -12,13 +12,13 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatEditText
 import com.example.softroute_v1.R
-import com.example.softroute_v1.controller.client.API.Consignees.ApiRequestConsignee
-import com.example.softroute_v1.controller.client.API.Consignees.Consignee
-import com.example.softroute_v1.controller.client.API.Deliveries.ApiRequestDelivery
-import com.example.softroute_v1.controller.client.API.Deliveries.Delivery
-import com.example.softroute_v1.controller.client.API.Shipments.ApiRequest
-import com.example.softroute_v1.controller.client.API.Shipments.Shipment
-import com.example.softroute_v1.controller.client.shipments.util.Constants.Companion.BASE_URL
+import com.example.softroute_v1.controller.retrofitApiConsume.Consignees.service.ConsigneeApiService
+import com.example.softroute_v1.controller.retrofitApiConsume.Consignees.model.Consignee
+import com.example.softroute_v1.controller.retrofitApiConsume.Deliveries.service.DeliveryApiService
+import com.example.softroute_v1.controller.retrofitApiConsume.Deliveries.model.Delivery
+import com.example.softroute_v1.controller.retrofitApiConsume.Shipments.service.ShipmentsApiService
+import com.example.softroute_v1.controller.retrofitApiConsume.Shipments.model.Shipment
+import com.example.softroute_v1.controller.retrofitApiConsume.Constants.Constants.Companion.BASE_URL
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -103,7 +103,7 @@ class ClientTrackingFragment : Fragment() {
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
-                .create(ApiRequest::class.java)
+                .create(ShipmentsApiService::class.java)
 
             api.getShipmentById(query)
         } catch (e: Exception) {
@@ -118,7 +118,7 @@ class ClientTrackingFragment : Fragment() {
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
-                .create(ApiRequestDelivery::class.java)
+                .create(DeliveryApiService::class.java)
 
             api.getDeliveries()
         }catch (e:Exception){
@@ -127,28 +127,29 @@ class ClientTrackingFragment : Fragment() {
         }
     }
 
-    private suspend fun makeConsigneesApiRequest(query: String):List<Consignee>{
-        return try{
-            val api=Retrofit.Builder()
+    private suspend fun makeConsigneeApiRequest(query: String): List<Consignee> {
+        return try {
+            val api = Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
-                .create(ApiRequestConsignee::class.java)
-            api.getConsigneeById(query)
+                .create(ConsigneeApiService::class.java)
 
-        }catch (e:Exception){
+            val response = api.getConsigneeById(query)// Realiza la llamada a la API y obtiene el objeto Response
+            val consignees=response // Accede a la data que tiene la respuesta
+            return consignees ?: emptyList()
+
+        } catch (e: Exception) {
             Log.e("ClientTrackingFragment", "Error en la solicitud de la API: ${e.message}", e)
             emptyList()
         }
     }
 
-    private suspend fun getConsigneeById(query: String):Consignee{
-        val consignee=makeConsigneesApiRequest(query)[0]
 
-        return consignee
+    private suspend fun getConsigneeById(query: String): Consignee? {
+        val consignees = makeConsigneeApiRequest(query)
+        return consignees.firstOrNull() // Devuelve el primer consignee si está disponible, de lo contrario, devuelve null
     }
-
-
 
     private suspend fun getDeliveryByShipmentId(shipmentId: Int): Delivery? {
         val deliveryList = makeDeliveryApiRequest()
@@ -161,15 +162,15 @@ class ClientTrackingFragment : Fragment() {
     }
 
 
-    private fun updateShipmentCard(delivery: Delivery,consignee: Consignee) {
-        if (::shipmentData.isInitialized) {
+    private fun updateShipmentCard(delivery: Delivery, consignee: Consignee?) {
+        if (::shipmentData.isInitialized && consignee != null) {
             // Actualizar otras vistas de texto según sea necesario
             code.text = shipmentData.id.toString()
             dateReception.text = shipmentData.date
-            dateReceiver.text=shipmentData.date
-            deadline.text=delivery.date
-            situation.text=delivery.description
-            personReceive.text=consignee.name
+            dateReceiver.text = shipmentData.date
+            deadline.text = delivery.date
+            situation.text = delivery.description
+            personReceive.text = consignee.name
             // ...
         }
     }

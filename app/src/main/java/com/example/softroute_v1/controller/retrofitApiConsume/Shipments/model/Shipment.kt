@@ -1,4 +1,4 @@
-package com.example.softroute_v1.controller.client.API.Shipments
+package com.example.softroute_v1.controller.retrofitApiConsume.Shipments.model
 
 data class Shipment(
     val id: Int,
