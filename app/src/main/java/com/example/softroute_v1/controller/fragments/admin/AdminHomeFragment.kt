@@ -7,19 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import com.example.softroute_v1.R
-import com.example.softroute_v1.controller.admin.setData
-
 
 
 class AdminHomeFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        var userName = activity?.intent?.getStringExtra(setData.name)
-        var userPhone = activity?.intent?.getStringExtra(setData.phone)
-        var userEmail = activity?.intent?.getStringExtra(setData.userEmail)
-
 
     }
 

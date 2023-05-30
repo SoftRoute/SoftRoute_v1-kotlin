@@ -15,12 +15,6 @@ import com.example.softroute_v1.controller.retrofitApiConsume.Consignees.model.C
 
 class ConsigneeAdapter(private val consigneeList: List<Consignee>) : RecyclerView.Adapter<ConsigneeViewHolder>(){
 
-    interface OnModifyClickListener {
-        fun onModifyClick(consignee: Consignee)
-    }
-
-
-    private var modifyClickListener: OnModifyClickListener? = null
 
     //Encargado de coger los atributos y pintarlo, le pasamos el item (el layout que va a pdoer modificar)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ConsigneeViewHolder {
@@ -33,36 +27,19 @@ class ConsigneeAdapter(private val consigneeList: List<Consignee>) : RecyclerVie
         val item=consigneeList[position]
         holder.render(item)
 
-
-        holder.btnModified.setOnClickListener {
-            val consignee = consigneeList[position]
-            modifyClickListener?.onModifyClick(consignee)
-        }
-
-
 /*
         holder.btnModified.setOnClickListener {
-            val consignee = consigneeList[position]
-            val action = AdminEditConsigneeFragment. actionAdminConsigneesFragmentToAdminEditConsigneeFragment(consignee)
-            holder.itemView.findNavController().navigate(action)
-
         }
-*/
 
         holder.btnDelete.setOnClickListener {
 
-        }
+        }*/
 
     }
 
     override fun getItemCount(): Int {
         return consigneeList.size
     }
-
-    fun setOnModifyClickListener(listener: OnModifyClickListener) {
-        modifyClickListener = listener
-    }
-
 
 
 }

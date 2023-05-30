@@ -21,7 +21,5 @@ class ConsigneeViewHolder(view: View):RecyclerView.ViewHolder(view) {
         consigneeName.text=consigneeModel.name
         address.text=consigneeModel.address
         dni.text=consigneeModel.dni
-
-
     }
 }

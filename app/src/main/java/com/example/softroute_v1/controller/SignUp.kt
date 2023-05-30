@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.softroute_v1.R
-import com.example.softroute_v1.controller.admin.setData
 
 import com.example.softroute_v1.databinding.ActivitySignUpBinding
 
