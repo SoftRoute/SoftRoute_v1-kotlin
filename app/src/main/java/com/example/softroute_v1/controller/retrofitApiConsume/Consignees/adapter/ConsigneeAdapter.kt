@@ -34,14 +34,6 @@ class ConsigneeAdapter(private val consigneeList: List<Consignee>) : RecyclerVie
             onButtonClick?.invoke(consigneeList[position])
         }
 
-/*
-        holder.btnModified.setOnClickListener {
-        }
-
-        holder.btnDelete.setOnClickListener {
-
-        }*/
-
     }
 
     override fun getItemCount(): Int {

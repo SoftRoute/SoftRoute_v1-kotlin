@@ -18,6 +18,7 @@ import com.example.softroute_v1.controller.retrofitApiConsume.Consignees.adapter
 import com.example.softroute_v1.controller.retrofitApiConsume.Consignees.service.ConsigneeApiService
 import com.example.softroute_v1.controller.retrofitApiConsume.Consignees.model.Consignee
 import com.example.softroute_v1.controller.retrofitApiConsume.Constants.Constants
+import com.example.softroute_v1.databinding.ActivityMainBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -31,25 +32,17 @@ class AdminConsigneesFragment : Fragment() {
         super.onCreate(savedInstanceState)
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
         val view = inflater.inflate(R.layout.fragment_admin_consignees, container, false)
 
         CoroutineScope(Dispatchers.IO).launch{
             try {
                 val consigneeList = makeConsigneesApiRequest()
                 withContext(Dispatchers.Main) {
-
                     if (consigneeList.isNotEmpty()) {
-
-                        //Tenemos la lista , aquí entonces pintariamos toda la morisqueta
-                        Log.v("PRINT",consigneeList.toString())
                         initRecyclerView(consigneeList)
-
-                        Toast.makeText(requireContext(), "Toasst", Toast.LENGTH_SHORT).show()
                     }else{
                         Toast.makeText(requireContext(), "Toasst", Toast.LENGTH_SHORT).show()
                     }
@@ -58,7 +51,6 @@ class AdminConsigneesFragment : Fragment() {
                 Log.e("AdminConsigneesFragment", "Error en la solicitud de la API: ${e.message}", e)
             }
         }
-
         return view
     }
 
@@ -87,6 +79,17 @@ class AdminConsigneesFragment : Fragment() {
         val recyclerView = view?.findViewById<RecyclerView>(R.id.recyclerConsignees)
         recyclerView?.layoutManager=LinearLayoutManager(requireContext())
         recyclerView?.adapter=ConsigneeAdapter(listConsignee)
+
+        recyclerView?.adapter = ConsigneeAdapter(listConsignee).apply {
+            onButtonClick = { consignee ->
+                navigateToEditConsigneeFragment(consignee)
+            }
+        }
+    }
+
+    private fun navigateToEditConsigneeFragment(consignee: Consignee) {
+        val action = AdminConsigneesFragmentDirections.actionAdminConsigneesFragmentToAdminEditConsigneeFragment(consignee)
+        findNavController().navigate(action)
     }
 
 }
