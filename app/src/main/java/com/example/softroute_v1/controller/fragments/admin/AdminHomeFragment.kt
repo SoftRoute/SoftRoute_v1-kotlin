@@ -72,9 +72,12 @@ class AdminHomeFragment : Fragment() {
                 .commit()
         }
 
-//        btnManageDestination.setOnClickListener{
-//            //val fragment:AdminS
-//        }
+        btnManageDestination.setOnClickListener{
+            val fragment=AdminDestinationListFragment()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.flFragment,fragment)
+                .commit()
+        }
 
 
         return view
