@@ -78,4 +78,7 @@
     <string name="destination">Destination</string>
     <string name="date">Date</string>
     <string name="dateShipment">Date</string>
+    <string name="manage_destination">Manage Destination</string>
+    <string name="destination_name">Destination</string>
+    <string name="delete_destination">Eliminar</string>
 </resources>

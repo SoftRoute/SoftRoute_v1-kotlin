@@ -92,6 +92,14 @@
                         android:gravity="center">
 
                         <Button
+                            android:id="@+id/btnManageDestinations"
+                            android:text="@string/manage_destination"
+                            android:textSize="15sp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"/>
+
+                        <Button
                             android:id="@+id/btnCreateShipment"
                             android:text="@string/create_a_shipment_"
                             android:textSize="15sp"
