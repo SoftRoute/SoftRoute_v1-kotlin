@@ -6,10 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.navigation.fragment.findNavController
 import com.example.softroute_v1.R
+import com.example.softroute_v1.databinding.FragmentAdminHomeBinding
+import com.example.softroute_v1.databinding.FragmentClientHomeBinding
 
 
 class AdminHomeFragment : Fragment() {
+
+    private var _binding: FragmentAdminHomeBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,57 +26,47 @@ class AdminHomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        _binding = FragmentAdminHomeBinding.inflate(inflater, container, false)
+        val view = binding.root
+
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_admin_home, container, false)
-        val btnCreateShipment = view.findViewById<Button>(R.id.btnCreateShipment)
-        val btnViewShipment = view.findViewById<Button>(R.id.btnViewShipment)
-        val btnShipmentList = view.findViewById<Button>(R.id.btnShipmentList)
-        val btnComents = view.findViewById<Button>(R.id.btnComents)
-        val btnConsignessList=view.findViewById<Button>(R.id.btnConsigneesList)
-        val btnSendersList=view.findViewById<Button>(R.id.btnSenderList)
+        val btnCreateShipment = binding.btnCreateShipment
+        val btnViewShipment = binding.btnViewShipment
+        val btnShipmentList = binding.btnShipmentList
+        val btnComents = binding.btnComents
+        val btnConsignessList=binding.btnConsigneesList
+        val btnSendersList=binding.btnSenderList
 
         btnCreateShipment.setOnClickListener {
-            val fragment = AdminAddShipmentFragment()
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.flFragment, fragment)
-                .commit()
+            val action=AdminHomeFragmentDirections.actionAdminHomeFragmentToAdminAddShipmentFragment()
+            findNavController().navigate(action)
         }
 
         btnShipmentList.setOnClickListener {
-            val fragment = AdminShipmentListFragment()
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.flFragment, fragment)
-                .commit()
+            val action=AdminHomeFragmentDirections.actionAdminHomeFragmentToAdminShipmentListFragment()
+            findNavController().navigate(action)
         }
 
         btnViewShipment.setOnClickListener {
-            val fragment = AdminTrackingFragment()
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.flFragment, fragment)
-                .commit()
+            val action=AdminHomeFragmentDirections.actionAdminHomeFragmentToAdminTrackingFragment()
+            findNavController().navigate(R.id.action_adminHomeFragment_to_adminTrackingFragment)
         }
 
         btnComents.setOnClickListener {
-            val fragment = AdminCommentsFragment()
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.flFragment, fragment)
-                .commit()
+            val action=AdminHomeFragmentDirections.actionAdminHomeFragmentToAdminCommentsFragment()
+            findNavController().navigate(action)
         }
 
         btnConsignessList.setOnClickListener{
-            val fragment = AdminConsigneesFragment()
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.flFragment, fragment)
-                .commit()
+            val action=AdminHomeFragmentDirections.actionAdminHomeFragmentToAdminConsigneesFragment()
+            findNavController().navigate(action)
         }
 
         btnSendersList.setOnClickListener{
-            val fragment = AdminSendersListFragment()
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.flFragment, fragment)
-                .commit()
+            val action=AdminHomeFragmentDirections.actionAdminHomeFragmentToAdminSendersListFragment()
+            findNavController().navigate(action)
         }
-
 
         return view
     }

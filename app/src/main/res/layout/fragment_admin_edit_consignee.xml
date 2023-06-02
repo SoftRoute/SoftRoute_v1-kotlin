@@ -4,9 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".controller.fragments.admin.AdminEditConsigneeFragment"
-    android:id="@+id/adminConsigneesFragment"
+    android:id="@+id/adminEditConsigneesFragment"
     >
-    <!-- TODO: Update blank fragment layout -->
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

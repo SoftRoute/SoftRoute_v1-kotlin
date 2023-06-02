@@ -9,8 +9,11 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
 import com.example.softroute_v1.R
 import com.example.softroute_v1.controller.retrofitApiConsume.Consignees.model.Consignee
+import kotlin.math.log
 
 class AdminEditConsigneeFragment : Fragment() {
+
+    private val args: AdminEditConsigneeFragmentArgs by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,11 +23,10 @@ class AdminEditConsigneeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val args: AdminEditConsigneeFragmentArgs by navArgs()
+
         val consignee: Consignee = args.consignee
 
-        // Accede a los datos de consignee y realiza las operaciones necesarias
-        Log.v("ConsigneeEdit","$consignee")
+        println(consignee)
 
         return inflater.inflate(R.layout.fragment_admin_edit_consignee, container, false)
     }
