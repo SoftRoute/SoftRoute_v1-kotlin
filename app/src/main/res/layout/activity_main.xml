@@ -5,43 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".controller.MainActivity"
-    android:background="@drawable/bluepink"
-    android:orientation="vertical"
-    android:padding="5dp"
-    android:gravity="center_vertical"
     >
 
-
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="272dp"
-        android:layout_height="233dp"
-        android:layout_gravity="center"
-        app:srcCompat="@drawable/flyingbox4" />
-
-    <Button
-        android:id="@+id/btnAdmin"
-        android:text="@string/administrators_"
-        android:textSize="15sp"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/mainNavHost"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
+        android:layout_height="match_parent"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/nav_graph"
         />
-
-    <View
-        android:layout_width="0dp"
-        android:layout_height="15dp"
-        />
-
-    <Button
-        android:id="@+id/btnClient"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/client_"
-        android:textSize="15sp"
-
-        android:gravity="center"/>
-
-
 
 </LinearLayout>

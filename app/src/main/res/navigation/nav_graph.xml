@@ -3,29 +3,136 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/adminEditConsigneeFragment">
+    app:startDestination="@id/welcomeFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.softroute_v1.controller.fragments.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_signUp"
+            app:destination="@id/signUp"
+            app:enterAnim="@anim/slide_in" />
+        <action
+            android:id="@+id/action_loginFragment_to_adminHomeFragment"
+            app:destination="@id/adminHomeFragment"
+            app:enterAnim="@anim/slide_in" />
+    </fragment>
+    <fragment
+        android:id="@+id/clientHomeFragment"
+        android:name="com.example.softroute_v1.controller.fragments.client.ClientHomeFragment"
+        android:label="fragment_client_home"
+        tools:layout="@layout/fragment_client_home" >
+        <action
+            android:id="@+id/action_clientHomeFragment_to_clientTrackingFragment"
+            app:destination="@id/clientTrackingFragment"
+            app:enterAnim="@anim/nav_default_enter_anim" />
+        <action
+            android:id="@+id/action_clientHomeFragment_to_clientAddCommentFragment"
+            app:destination="@id/clientAddCommentFragment"
+            app:enterAnim="@anim/nav_default_enter_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUp"
+        android:name="com.example.softroute_v1.controller.fragments.SignUp"
+        android:label="SignUp" />
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.example.softroute_v1.controller.fragments.WelcomeFragment"
+        android:label="WelcomeFragment" >
+        <action
+            android:id="@+id/action_welcomeFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:popExitAnim="@anim/slide_out" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_clientHomeFragment"
+            app:destination="@id/clientHomeFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:popExitAnim="@anim/slide_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/clientTrackingFragment"
+        android:name="com.example.softroute_v1.controller.fragments.client.ClientTrackingFragment"
+        android:label="fragment_client_tracking"
+        tools:layout="@layout/fragment_client_tracking" />
+    <fragment
+        android:id="@+id/clientAddCommentFragment"
+        android:name="com.example.softroute_v1.controller.fragments.client.ClientAddCommentFragment"
+        android:label="fragment_client_add_comment"
+        tools:layout="@layout/fragment_client_add_comment" />
+    <fragment
+        android:id="@+id/adminHomeFragment"
+        android:name="com.example.softroute_v1.controller.fragments.admin.AdminHomeFragment"
+        android:label="fragment_admin_home"
+        tools:layout="@layout/fragment_admin_home" >
+        <action
+            android:id="@+id/action_adminHomeFragment_to_adminAddShipmentFragment"
+            app:destination="@id/adminAddShipmentFragment"
+            app:enterAnim="@anim/nav_default_enter_anim" />
+        <action
+            android:id="@+id/action_adminHomeFragment_to_adminTrackingFragment"
+            app:destination="@id/adminTrackingFragment"
+            app:enterAnim="@anim/nav_default_enter_anim" />
+        <action
+            android:id="@+id/action_adminHomeFragment_to_adminCommentsFragment"
+            app:destination="@id/adminCommentsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim" />
+        <action
+            android:id="@+id/action_adminHomeFragment_to_adminConsigneesFragment"
+            app:destination="@id/adminConsigneesFragment"
+            app:enterAnim="@anim/nav_default_enter_anim" />
+        <action
+            android:id="@+id/action_adminHomeFragment_to_adminSendersListFragment"
+            app:destination="@id/adminSendersListFragment"
+            app:enterAnim="@anim/nav_default_enter_anim" />
+        <action
+            android:id="@+id/action_adminHomeFragment_to_adminShipmentListFragment"
+            app:destination="@id/adminShipmentListFragment"
+            app:enterAnim="@anim/nav_default_enter_anim" />
+    </fragment>
 
 
+    <fragment
+        android:id="@+id/adminTrackingFragment"
+        android:name="com.example.softroute_v1.controller.fragments.admin.AdminTrackingFragment"
+        android:label="fragment_admin_tracking"
+        tools:layout="@layout/fragment_admin_tracking" />
+    <fragment
+        android:id="@+id/adminCommentsFragment"
+        android:name="com.example.softroute_v1.controller.fragments.admin.AdminCommentsFragment"
+        android:label="fragment_admin_comments"
+        tools:layout="@layout/fragment_admin_comments" />
     <fragment
         android:id="@+id/adminConsigneesFragment"
         android:name="com.example.softroute_v1.controller.fragments.admin.AdminConsigneesFragment"
         android:label="fragment_admin_consignees"
-        tools:layout="@layout/fragment_admin_consignees">
-
+        tools:layout="@layout/fragment_admin_consignees" >
         <action
             android:id="@+id/action_adminConsigneesFragment_to_adminEditConsigneeFragment"
             app:destination="@id/adminEditConsigneeFragment" />
-
     </fragment>
-
+    <fragment
+        android:id="@+id/adminSendersListFragment"
+        android:name="com.example.softroute_v1.controller.fragments.admin.AdminSendersListFragment"
+        android:label="fragment_admin_senders_list"
+        tools:layout="@layout/fragment_admin_senders_list" />
+    <fragment
+        android:id="@+id/adminShipmentListFragment"
+        android:name="com.example.softroute_v1.controller.fragments.admin.AdminShipmentListFragment"
+        android:label="fragment_admin_shipment_list"
+        tools:layout="@layout/fragment_admin_shipment_list" />
+    <fragment
+        android:id="@+id/adminAddShipmentFragment"
+        android:name="com.example.softroute_v1.controller.fragments.admin.AdminAddShipmentFragment"
+        android:label="AdminAddShipmentFragment" />
     <fragment
         android:id="@+id/adminEditConsigneeFragment"
         android:name="com.example.softroute_v1.controller.fragments.admin.AdminEditConsigneeFragment"
         android:label="fragment_admin_edit_consignee"
-        tools:layout="@layout/fragment_admin_edit_consignee">
+        tools:layout="@layout/fragment_admin_edit_consignee" >
         <argument
             android:name="consignee"
             app:argType="com.example.softroute_v1.controller.retrofitApiConsume.Consignees.model.Consignee" />
-        </fragment>
-
+    </fragment>
 </navigation>

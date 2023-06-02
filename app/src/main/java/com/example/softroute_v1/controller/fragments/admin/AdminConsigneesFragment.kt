@@ -77,19 +77,11 @@ class AdminConsigneesFragment : Fragment() {
 
     private fun initRecyclerView(listConsignee: List<Consignee>){
         val recyclerView = view?.findViewById<RecyclerView>(R.id.recyclerConsignees)
-        recyclerView?.layoutManager=LinearLayoutManager(requireContext())
-        recyclerView?.adapter=ConsigneeAdapter(listConsignee)
+        recyclerView?.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView?.adapter = ConsigneeAdapter(listConsignee)
+        recyclerView?.adapter?.notifyDataSetChanged()
 
-        recyclerView?.adapter = ConsigneeAdapter(listConsignee).apply {
-            onButtonClick = { consignee ->
-                navigateToEditConsigneeFragment(consignee)
-            }
-        }
     }
 
-    private fun navigateToEditConsigneeFragment(consignee: Consignee) {
-        val action = AdminConsigneesFragmentDirections.actionAdminConsigneesFragmentToAdminEditConsigneeFragment(consignee)
-        findNavController().navigate(action)
-    }
 
 }

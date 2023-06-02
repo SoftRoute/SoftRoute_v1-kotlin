@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.navigation.fragment.findNavController
 import com.example.softroute_v1.R
 import com.example.softroute_v1.controller.ClientActivity
 
@@ -18,18 +19,12 @@ class ClientHomeFragment : Fragment() {
     private var _binding: FragmentClientHomeBinding? = null
     private val binding get() = _binding!!
 
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-
     ): View? {
 
         _binding = FragmentClientHomeBinding.inflate(inflater, container, false)
@@ -40,25 +35,19 @@ class ClientHomeFragment : Fragment() {
         val buttonLeaveComment = binding.btnCreateComent
 
         buttonTracking.setOnClickListener {
-            val fragment = ClientTrackingFragment()
-            requireActivity().supportFragmentManager.beginTransaction()
-                .replace(R.id.flFragment, fragment)
-                .commit()
-
-            val clientActivity = activity as ClientActivity
+            val action=ClientHomeFragmentDirections.actionClientHomeFragmentToClientTrackingFragment()
+            findNavController().navigate(action)
+/*            val clientActivity = activity as ClientActivity
             clientActivity.findViewById<BottomNavigationView>(R.id.bnvMenuClient)
-                .menu.findItem(R.id.bottom_client_tracking).isChecked = true
+                .menu.findItem(R.id.bottom_client_tracking).isChecked = true*/
         }
 
         buttonLeaveComment.setOnClickListener {
-            val fragment = ClientAddCommentFragment()
-            requireActivity().supportFragmentManager.beginTransaction()
-                .replace(R.id.flFragment, fragment)
-                .commit()
-
-            val clientActivity = activity as ClientActivity
+            val action=ClientHomeFragmentDirections.actionClientHomeFragmentToClientAddCommentFragment()
+            findNavController().navigate(action)
+/*            val clientActivity = activity as ClientActivity
             clientActivity.findViewById<BottomNavigationView>(R.id.bnvMenuClient)
-                .menu.findItem(R.id.bottom_client_comment).isChecked = true
+                .menu.findItem(R.id.bottom_client_comment).isChecked = true*/
         }
 
         return view
