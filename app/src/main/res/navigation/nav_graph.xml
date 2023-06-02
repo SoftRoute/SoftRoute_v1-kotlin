@@ -90,6 +90,9 @@
             android:id="@+id/action_adminHomeFragment_to_adminShipmentListFragment"
             app:destination="@id/adminShipmentListFragment"
             app:enterAnim="@anim/nav_default_enter_anim" />
+        <action
+            android:id="@+id/action_adminHomeFragment_to_adminDestinationListFragment"
+            app:destination="@id/adminDestinationListFragment" />
     </fragment>
 
 
@@ -135,4 +138,9 @@
             android:name="consignee"
             app:argType="com.example.softroute_v1.controller.retrofitApiConsume.Consignees.model.Consignee" />
     </fragment>
+    <fragment
+        android:id="@+id/adminDestinationListFragment"
+        android:name="com.example.softroute_v1.controller.fragments.admin.AdminDestinationListFragment"
+        android:label="fragment_admin_destination_list"
+        tools:layout="@layout/fragment_admin_destination_list" />
 </navigation>
