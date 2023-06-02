@@ -69,8 +69,6 @@ class AdminEditConsigneeFragment : Fragment() {
             }
         }
 
-
-        println(consignee)
         return view
     }
 
@@ -131,7 +129,7 @@ class AdminEditConsigneeFragment : Fragment() {
 
 
         // Crear la instancia del servicio API
-        var apiService = retrofit.create(ConsigneeApiService::class.java)
+        val apiService = retrofit.create(ConsigneeApiService::class.java)
 
         // Realizar la solicitud PUT
         GlobalScope.launch(Dispatchers.IO) {
