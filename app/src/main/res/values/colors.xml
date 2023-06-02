@@ -8,4 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="header">#6758D9</color>
+    <color name="progress_bar_color">#6758D9</color>
+
 </resources>

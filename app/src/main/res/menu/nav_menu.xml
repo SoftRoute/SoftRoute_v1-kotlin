@@ -10,17 +10,27 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/baseline_home_24"
-            android:title="Home"/>
+            android:title="@string/admin_menu_home" />
 
         <item
-            android:id="@+id/nav_settings"
-            android:icon="@drawable/baseline_settings_24"
-            android:title="Settings"/>
+            android:id="@+id/nav_admin_add_shipment"
+            android:icon="@drawable/baseline_add_to_photos_24"
+            android:title="@string/admin_menu_add_shipment"/>
 
         <item
-            android:id="@+id/nav_about"
-            android:icon="@drawable/baseline_clear_24"
-            android:title="About Us"/>
+            android:id="@+id/nav_admin_list_shipments"
+            android:icon="@drawable/baseline_format_list_bulleted_24"
+            android:title="@string/admin_menu_shipment_list"/>
+
+        <item
+            android:id="@+id/nav_admin_tracking"
+            android:icon="@drawable/baseline_airport_shuttle_24"
+            android:title="@string/admin_menu_tracking"/>
+
+        <item
+            android:id="@+id/nav_admin_comments"
+            android:icon="@drawable/baseline_comment_24"
+            android:title="@string/admin_menu_comments"/>
     </group>
     <item
         android:title="">
@@ -29,7 +39,7 @@
             <item
                 android:id="@+id/nav_logout"
                 android:icon="@drawable/baseline_exit_to_app_24"
-                android:title="Logout"/>
+                android:title="@string/admin_menu_logout"/>
         </menu>
 
     </item>

@@ -21,7 +21,7 @@
     <string name="name">Name</string>
     <string name="consignee_information">Consignee Information</string>
     <string name="nameConsignee">Name</string>
-    <string name="namesender_">Name</string>
+    <string name="nameSender">Name</string>
     <string name="identification_document_Consignee">Identification document</string>
     <string name="view_shipment_status">View shipment status</string>
     <string name="shipment_list">Shipment List</string>
@@ -36,4 +36,49 @@
     <string name="ver_mis_comentarios">Ver mis comentarios</string>
     <string name="comments_" />
     <string name="comments">Comentarios</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="menu_shipment_list">Shipment List</string>
+    <string name="admin_menu_tracking">Tracking</string>
+    <string name="admin_menu_shipment_list">Shipment List</string>
+    <string name="admin_menu_comments">Comments</string>
+
+
+    <string name="open_nav">Abrir</string>
+    <string name="close_nav">Cerrar</string>
+    <string name="admin_menu_home">Home</string>
+    <string name="admin_menu_add_shipment">Add Shipment</string>
+    <string name="admin_menu_logout">Logout</string>
+    <string name="admin_bottom_home">Home</string>
+    <string name="admin_bottom_add_shipment">Add Shipment</string>
+    <string name="admin_bottom_shipment_list">Shipment List</string>
+    <string name="admin_bottom_tracking">Tracking</string>
+    <string name="admin_bottom_comments">Comments</string>
+    <string name="admin_fragment_comments">Comments</string>
+    <string name="client_bottom_home">Home</string>
+    <string name="client_bottom_tracking">Tracking</string>
+    <string name="situacion">Situación:</string>
+    <string name="detalle_de_envio">Detalle de Envío</string>
+    <string name="codigo">Código:</string>
+    <string name="fecha_recepcion">Fecha Recepcion:</string>
+    <string name="fecha_envio">Fecha Envío:</string>
+    <string name="fecha_entrega">Fecha Entrega:</string>
+    <string name="entregado">Entregado:</string>
+    <string name="consignees_list">Consignees List</string>
+    <string name="senders_list">Senders List</string>
+    <string name="type_of_package">Type of package</string>
+    <string name="freight">freight</string>
+    <string name="description">Description</string>
+    <string name="emailSender">Identification document</string>
+    <string name="emailconsignee">emailConsignee</string>
+    <string name="email_consignee">Email</string>
+    <string name="emailsender">Email</string>
+    <string name="consigneeDNI">DNI</string>
+    <string name="typeDocument">Type</string>
+    <string name="destination">Destination</string>
+    <string name="date">Date</string>
+    <string name="dateShipment">Date</string>
+    <string name="manage_destination">Manage Destination</string>
+    <string name="destination_name">Destination</string>
+    <string name="delete_destination">Eliminar</string>
 </resources>
