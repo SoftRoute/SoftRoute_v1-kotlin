@@ -24,7 +24,13 @@ class DestinationAdapter (private val destinationList:MutableList<Destination>):
         val item=destinationList[position]
         holder.render(item)
 
-        onDeleteClickListener?.let { holder.deleteDestination(item , it) }
+//        onDeleteClickListener?.let { holder.deleteDestination(item , it) }
+
+        onDeleteClickListener?.let { listener ->
+            holder.deleteDestination.setOnClickListener {
+                listener(item)
+            }
+        }
     }
 
     fun setOnDeleteClickListener(listener: (Destination) -> Unit) {
