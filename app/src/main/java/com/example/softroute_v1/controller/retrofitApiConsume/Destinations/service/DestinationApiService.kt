@@ -20,7 +20,7 @@ interface DestinationApiService {
     suspend fun createDestination(@Body destination: Destination): Response<Destination>
 
     @DELETE("destinations/{id}")
-    suspend fun deleteDestination(@Path("id") id:String): Response<Destination>
+    suspend fun deleteDestination(@Path("id") id:Int): Response<Destination>
 
 
 }

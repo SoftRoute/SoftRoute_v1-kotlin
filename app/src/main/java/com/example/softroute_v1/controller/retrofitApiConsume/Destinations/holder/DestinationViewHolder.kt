@@ -14,4 +14,13 @@ class DestinationViewHolder(view:View): RecyclerView.ViewHolder(view) {
     fun render(destinationModel:Destination){
         destinationName.text=destinationModel.name
     }
+
+    fun deleteDestination(destinationModel: Destination, onDeleteClick:(Destination)->Unit){
+        destinationName.text=destinationModel.name
+        deleteDestination.setOnClickListener{
+            onDeleteClick(destinationModel)
+        }
+
+
+    }
 }
