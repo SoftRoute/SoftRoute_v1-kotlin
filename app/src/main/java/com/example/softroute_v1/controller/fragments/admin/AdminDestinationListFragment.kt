@@ -31,7 +31,7 @@ class AdminDestinationListFragment : Fragment() {
     ): View? {
         CoroutineScope(Dispatchers.IO).launch{
             try {
-                val destinationList=makeDestinationApiRequest()
+                val destinationList=makeDestinationApiRequest().toMutableList()
                 withContext(Dispatchers.Main){
                     if(destinationList.isNotEmpty()){
                         initRecyclerView(destinationList)
@@ -47,7 +47,7 @@ class AdminDestinationListFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_admin_destination_list, container, false)
     }
 
-    private fun initRecyclerView(destinationList: List<Destination>) {
+    private fun initRecyclerView(destinationList: MutableList<Destination>) {
         val recyclerView=view?.findViewById<RecyclerView>(R.id.recyclerDestination)
         recyclerView?.layoutManager=LinearLayoutManager(requireContext())
         recyclerView?.adapter=DestinationAdapter(destinationList)

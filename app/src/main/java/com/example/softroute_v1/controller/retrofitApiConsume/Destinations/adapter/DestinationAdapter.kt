@@ -8,7 +8,8 @@ import com.example.softroute_v1.R
 import com.example.softroute_v1.controller.retrofitApiConsume.Destinations.holder.DestinationViewHolder
 import com.example.softroute_v1.controller.retrofitApiConsume.Destinations.model.Destination
 
-class DestinationAdapter (private val destinationList:List<Destination>): RecyclerView.Adapter<DestinationViewHolder>(){
+class DestinationAdapter (private val destinationList:MutableList<Destination>): RecyclerView.Adapter<DestinationViewHolder>(){
+    private var onDeleteClickListener: ((Destination) -> Unit)? = null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DestinationViewHolder {
         val layoutInflater=LayoutInflater.from(parent.context)
         return DestinationViewHolder(layoutInflater.inflate(R.layout.item_destination,parent,false))
@@ -23,10 +24,19 @@ class DestinationAdapter (private val destinationList:List<Destination>): Recycl
         val item=destinationList[position]
         holder.render(item)
 
-//        holder.itemView.findViewById<Button>(R.id.btnDeleteDestination).setOnClickListener{
-//
-//        }
+        onDeleteClickListener?.let { holder.deleteDestination(item , it) }
+    }
 
+    fun setOnDeleteClickListener(listener: (Destination) -> Unit) {
+        onDeleteClickListener = listener
+    }
+
+    fun removeDestination(destination: Destination) {
+        val index = destinationList.indexOf(destination)
+        if (index != -1) {
+            destinationList.removeAt(index)
+            notifyItemRemoved(index)
+        }
     }
 
 }
