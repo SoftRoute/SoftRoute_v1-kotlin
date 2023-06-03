@@ -7,5 +7,13 @@ import retrofit2.http.POST
 import retrofit2.http.Path
 
 interface FreightApiService {
+    @GET("freights")
+    suspend fun getShipments():List<Freight>
 
+    @GET("freights/{id}")
+    suspend fun getShipmentById(@Path("id") id: String): List<Freight>
+
+
+    @POST("freights")
+    suspend fun createShipment(@Body freight: Freight): Response<Freight>
 }
