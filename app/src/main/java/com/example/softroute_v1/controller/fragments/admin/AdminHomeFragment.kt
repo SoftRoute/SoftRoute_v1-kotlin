@@ -38,6 +38,7 @@ class AdminHomeFragment : Fragment() {
         val btnConsignessList=binding.btnConsigneesList
         val btnSendersList=binding.btnSenderList
         val btnDestinationList=binding.btnManageDestinations
+        val btnFreights=binding.btnFreights
 
         btnCreateShipment.setOnClickListener {
             val action=AdminHomeFragmentDirections.actionAdminHomeFragmentToAdminAddShipmentFragment()
@@ -72,6 +73,10 @@ class AdminHomeFragment : Fragment() {
         btnDestinationList.setOnClickListener {
             val action=AdminHomeFragmentDirections.actionAdminHomeFragmentToAdminDestinationListFragment()
             findNavController().navigate(action)
+        }
+        btnFreights.setOnClickListener {
+          val action=AdminHomeFragmentDirections.actionAdminHomeFragmentToAdminFreightsFragment()
+          findNavController().navigate(action)
         }
 
         return view
