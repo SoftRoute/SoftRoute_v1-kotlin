@@ -10,11 +10,11 @@
 
     <Button
         android:id="@+id/next"
-        android:text="Search"
-        android:textSize="15sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:text="Search"
+        android:textSize="15sp" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -25,13 +25,12 @@
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/input_user_code_tracking"
+            style="@style/AppCompatEditTextCustomStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Tracking code"
-            android:textColorHint="@color/teal_700"
             android:paddingTop="12dp"
-            style="@style/AppCompatEditTextCustomStyle"
-            />
+            android:textColorHint="@color/teal_700" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

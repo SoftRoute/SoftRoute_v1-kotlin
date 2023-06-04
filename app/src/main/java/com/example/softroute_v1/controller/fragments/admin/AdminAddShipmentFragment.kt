@@ -11,12 +11,14 @@ import androidx.appcompat.widget.AppCompatEditText
 import com.example.softroute_v1.R
 import com.example.softroute_v1.controller.retrofitApiConsume.TypeOfPackage.model.TypeOfPackage
 import com.example.softroute_v1.controller.retrofitApiConsume.Constants.Constants.Companion.BASE_URL
+import com.example.softroute_v1.controller.retrofitApiConsume.Documents.service.DocumentApiService
 import com.example.softroute_v1.controller.retrofitApiConsume.Shipments.model.Shipment
 import com.example.softroute_v1.controller.retrofitApiConsume.Shipments.service.ShipmentsApiService
 import com.example.softroute_v1.controller.retrofitApiConsume.TypeOfPackage.service.TypeOfPackageApiService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import org.w3c.dom.Text
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -67,10 +69,28 @@ class AdminAddShipmentFragment : Fragment() {
 
 
         //Document Configuration
-        documentShipment=view.findViewById(R.id.inputDocumentName)
-        val documentValues= arrayOf("boleta","factura","otro")
-        val documentAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, documentValues)
-        documentShipment.setAdapter(documentAdapter)
+        //Document Call Api
+        val retrofit = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        val ApiService= retrofit.create(DocumentApiService::class.java)
+        try {
+            val documents = runBlocking { ApiService.getDocuments() }
+            val documentName=documents.map { it.name }.toTypedArray()
+
+            val documentAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, documentName)
+            documentShipment.setAdapter(documentAdapter)
+        }catch (e:Exception){
+            Log.d("Error",e.toString())
+        }
+        //Document values predefined
+        //documentShipment=view.findViewById(R.id.inputDocumentName)
+        //val documentValues= arrayOf("boleta","factura","otro")
+        //val documentAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, documentValues)
+        //documentShipment.setAdapter(documentAdapter)
+
+
 
 
 
