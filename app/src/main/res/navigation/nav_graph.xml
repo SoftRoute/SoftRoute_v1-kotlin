@@ -119,7 +119,11 @@
         android:id="@+id/adminSendersListFragment"
         android:name="com.example.softroute_v1.controller.fragments.admin.AdminSendersListFragment"
         android:label="fragment_admin_senders_list"
-        tools:layout="@layout/fragment_admin_senders_list" />
+        tools:layout="@layout/fragment_admin_senders_list" >
+        <action
+            android:id="@+id/action_adminSendersListFragment_to_adminEditSenderFragment"
+            app:destination="@id/adminEditSenderFragment" />
+    </fragment>
     <fragment
         android:id="@+id/adminShipmentListFragment"
         android:name="com.example.softroute_v1.controller.fragments.admin.AdminShipmentListFragment"
@@ -137,10 +141,31 @@
         <argument
             android:name="consignee"
             app:argType="com.example.softroute_v1.controller.retrofitApiConsume.Consignees.model.Consignee" />
+        <action
+            android:id="@+id/action_adminEditConsigneeFragment_to_adminConsigneesFragment"
+            app:destination="@id/adminConsigneesFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popUpTo="@id/adminConsigneesFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/adminDestinationListFragment"
         android:name="com.example.softroute_v1.controller.fragments.admin.AdminDestinationListFragment"
         android:label="fragment_admin_destination_list"
         tools:layout="@layout/fragment_admin_destination_list" />
+    <fragment
+        android:id="@+id/adminEditSenderFragment"
+        android:name="com.example.softroute_v1.controller.fragments.admin.AdminEditSenderFragment"
+        android:label="fragment_admin_edit_sender"
+        tools:layout="@layout/fragment_admin_edit_sender" >
+        <action
+            android:id="@+id/action_adminEditSenderFragment_to_adminSendersListFragment"
+            app:destination="@id/adminSendersListFragment"
+            app:popUpTo="@id/adminSendersListFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="sender"
+            app:argType="com.example.softroute_v1.controller.retrofitApiConsume.Sender.model.Sender" />
+    </fragment>
 </navigation>

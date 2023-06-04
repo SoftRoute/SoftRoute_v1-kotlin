@@ -5,51 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".controller.fragments.admin.AdminEditConsigneeFragment"
-    android:id="@+id/adminEditConsigneesFragment"
-    >
+    tools:context=".controller.fragments.admin.AdminEditSenderFragment">
 
     <TextView
+        android:id="@+id/tvTitleModifySender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="MODIFY"
+        android:layout_marginTop="32dp"
         android:gravity="center"
+        android:text="MODIFY"
         android:textColor="@color/purple_700"
-        android:textStyle="bold"
         android:textSize="30sp"
+        android:textStyle="bold"
         android:typeface="monospace"
-        app:layout_constraintBottom_toTopOf="@+id/textInputLayoutDNI"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutDNI"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="130dp"
-        android:layout_marginEnd="32dp"
-        android:hint="DNI"
-        app:counterEnabled="true"
-        app:counterMaxLength="8"
-        app:endIconMode="clear_text"
-        app:helperText="Required*"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:startIconDrawable="@drawable/baseline_assignment_ind_24">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditDNI"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:maxLength="8" />
-    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayoutName"
@@ -57,14 +29,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:hint="Name"
         app:endIconMode="clear_text"
         app:helperText="Required*"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutDNI"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitleModifySender"
         app:startIconDrawable="@drawable/baseline_account_icon">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -75,29 +47,29 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutAddress"
+        android:id="@+id/textInputLayoutEmail"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:hint="Address"
+        android:hint="Email"
         app:endIconMode="clear_text"
         app:helperText="Required*"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayoutName"
-        app:startIconDrawable="@drawable/baseline_home_work_24">
+        app:startIconDrawable="@drawable/baseline_email_24">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditAddress"
+            android:id="@+id/textInputEditEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/btnModifyInformationConsignee"
+        android:id="@+id/btnModifyInformationSender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="158dp"
@@ -106,7 +78,6 @@
         android:text="SAVE INFORMATION"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutAddress" />
-
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutEmail" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

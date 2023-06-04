@@ -6,6 +6,7 @@ import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.PUT
 import retrofit2.http.Path
 
 interface ConsigneeApiService {
@@ -18,4 +19,10 @@ interface ConsigneeApiService {
 
     @POST("consignees")
     suspend fun createConsignee(@Body consignee: Consignee):Response<Consignee>
+
+    @PUT("consignees/{id}")
+    suspend fun updateConsignee(
+        @Path("id") id: String,
+        @Body consignee: Consignee
+    ): Response<Consignee>
 }

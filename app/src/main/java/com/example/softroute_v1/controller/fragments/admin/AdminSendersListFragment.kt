@@ -80,12 +80,7 @@ class AdminSendersListFragment : Fragment() {
         val recyclerView = view?.findViewById<RecyclerView>(R.id.recyclerSenders)
         recyclerView?.layoutManager= LinearLayoutManager(requireContext())
         recyclerView?.adapter= SenderAdapter(listSender)
-
-/*        recyclerView?.adapter = ConsigneeAdapter(listConsignee).apply {
-            onButtonClick = { consignee ->
-                navigateToEditConsigneeFragment(consignee)
-            }
-        }*/
+        recyclerView?.adapter?.notifyDataSetChanged()
     }
 
 }
