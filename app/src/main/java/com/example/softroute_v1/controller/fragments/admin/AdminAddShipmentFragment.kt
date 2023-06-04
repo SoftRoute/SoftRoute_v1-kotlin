@@ -51,7 +51,6 @@ class AdminAddShipmentFragment : Fragment() {
 
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_admin_add_shipment, container, false)
-
         //TYPE PACKAGE CONFI
         autoCompletedText = view.findViewById(R.id.spinner)
 
