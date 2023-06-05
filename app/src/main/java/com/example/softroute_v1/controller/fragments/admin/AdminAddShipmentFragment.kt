@@ -77,23 +77,25 @@ class AdminAddShipmentFragment : Fragment() {
         val ApiService= retrofit.create(DocumentApiService::class.java)
         try {
             val documents = runBlocking { ApiService.getDocuments() }
-            val documentName=documents.map { it.name }.toTypedArray()
 
-            val documentAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, documentName)
+
+            var documentName= arrayOf<String>()
+            documents.forEach{
+                it.name
+                documentName= documentName.plus(it.name)
+            }
+
+            documentShipment=view.findViewById(R.id.inputDocumentName)
+            val documentAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line,documentName )
             documentShipment.setAdapter(documentAdapter)
         }catch (e:Exception){
             Log.d("Error",e.toString())
         }
         //Document values predefined
-        //documentShipment=view.findViewById(R.id.inputDocumentName)
-        //val documentValues= arrayOf("boleta","factura","otro")
-        //val documentAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, documentValues)
-        //documentShipment.setAdapter(documentAdapter)
-
-
-
-
-
+//        documentShipment=view.findViewById(R.id.inputDocumentName)
+//        val documentValues= arrayOf("boleta","factura","otro")
+//        val documentAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, documentValues)
+//        documentShipment.setAdapter(documentAdapter)
 
         //DATE CONGFI
         //var dateChoosed: String
