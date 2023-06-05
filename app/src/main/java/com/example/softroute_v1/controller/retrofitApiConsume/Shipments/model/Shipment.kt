@@ -14,8 +14,4 @@ data class Shipment(
     val documentId: Int,
     val destinyId: Int,
     val date: String,
-
-
-
-
     )
