@@ -22,7 +22,19 @@
                 android:orientation="vertical"
                 android:padding="7dp">
 
-                <!-- Package informaction -->
+                <!-- id Shipment -->
+                <EditText
+                    android:id="@+id/id_shipment_edit_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="196dp"
+                    android:layout_marginTop="16dp"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:visibility="invisible"
+                    tools:text="Id shipment" />
+
+                <!-- Package information -->
                 <TextView
                     android:id="@+id/tvPackageInfo"
                     android:layout_width="wrap_content"
@@ -42,7 +54,7 @@
                     android:layout_marginTop="10dp">
 
                     <AutoCompleteTextView
-                        android:id="@+id/spinner"
+                        android:id="@+id/tipopaquete_spinner"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -59,7 +71,7 @@
                     android:layout_marginTop="10dp">
 
                     <androidx.appcompat.widget.AppCompatEditText
-                        android:id="@+id/inputWeight"
+                        android:id="@+id/peso_edit_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/weight"
@@ -76,7 +88,7 @@
                     android:layout_marginTop="10dp">
 
                     <androidx.appcompat.widget.AppCompatEditText
-                        android:id="@+id/inputQuantity"
+                        android:id="@+id/quantity_edit_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/quantity_"
@@ -93,7 +105,7 @@
                     android:layout_marginTop="10dp">
 
                     <androidx.appcompat.widget.AppCompatEditText
-                        android:id="@+id/inputFreight"
+                        android:id="@+id/flete_edit_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Freight"
@@ -110,7 +122,7 @@
                     android:layout_marginTop="10dp">
 
                     <androidx.appcompat.widget.AppCompatEditText
-                        android:id="@+id/inputDescription"
+                        android:id="@+id/description_edit_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/description"
@@ -133,13 +145,13 @@
 
                 <!-- Sender Name -->
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp">
 
-                    <androidx.appcompat.widget.AppCompatEditText
-                        android:id="@+id/inputSenderName"
+                    <AutoCompleteTextView
+                        android:id="@+id/remitente_spinner"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/nameSender"
@@ -148,21 +160,21 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- Sender Email -->
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp">
+<!--                <com.google.android.material.textfield.TextInputLayout-->
+<!--                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="10dp">-->
 
-                    <androidx.appcompat.widget.AppCompatEditText
-                        android:id="@+id/inputSenderEmail"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/emailsender"
-                        android:inputType="textEmailAddress"
-                        android:textColorHint="#837D7D" />
+<!--                    <androidx.appcompat.widget.AppCompatEditText-->
+<!--                        android:id="@+id/inputSenderEmail"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:hint="@string/emailsender"-->
+<!--                        android:inputType="textEmailAddress"-->
+<!--                        android:textColorHint="#837D7D" />-->
 
-                </com.google.android.material.textfield.TextInputLayout>
+<!--                </com.google.android.material.textfield.TextInputLayout>-->
 
                 <!-- Consignee Information -->
                 <TextView
@@ -178,13 +190,13 @@
 
                 <!-- Consignee Name -->
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp">
 
-                    <androidx.appcompat.widget.AppCompatEditText
-                        android:id="@+id/inputConsigneeName"
+                    <AutoCompleteTextView
+                        android:id="@+id/consignatario_spinner"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/nameConsignee"
@@ -193,37 +205,37 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- Consignee Email -->
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp">
+<!--                <com.google.android.material.textfield.TextInputLayout-->
+<!--                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="10dp">-->
 
-                    <androidx.appcompat.widget.AppCompatEditText
-                        android:id="@+id/inputConsigneeEmail"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/email_consignee"
-                        android:textColorHint="#837D7D" />
+<!--                    <androidx.appcompat.widget.AppCompatEditText-->
+<!--                        android:id="@+id/inputConsigneeEmail"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:hint="@string/email_consignee"-->
+<!--                        android:textColorHint="#837D7D" />-->
 
-                </com.google.android.material.textfield.TextInputLayout>
+<!--                </com.google.android.material.textfield.TextInputLayout>-->
 
-                <!-- Consignee DNI -->
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp">
+<!--                &lt;!&ndash; Consignee DNI &ndash;&gt;-->
+<!--                <com.google.android.material.textfield.TextInputLayout-->
+<!--                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="10dp">-->
 
-                    <androidx.appcompat.widget.AppCompatEditText
-                        android:id="@+id/inputConsigneeDNI"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/consigneeDNI"
-                        android:textColorHint="#837D7D"
-                        android:inputType="number"/>
+<!--                    <androidx.appcompat.widget.AppCompatEditText-->
+<!--                        android:id="@+id/inputConsigneeDNI"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:hint="@string/consigneeDNI"-->
+<!--                        android:textColorHint="#837D7D"-->
+<!--                        android:inputType="number"/>-->
 
-                </com.google.android.material.textfield.TextInputLayout>
+<!--                </com.google.android.material.textfield.TextInputLayout>-->
 
                 <!-- Document Information -->
 
@@ -246,7 +258,7 @@
                     android:layout_marginTop="10dp">
 
                     <AutoCompleteTextView
-                        android:id="@+id/inputDocumentName"
+                        android:id="@+id/documento_spinner"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -272,13 +284,13 @@
 
                 <!-- Destination Place -->
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp">
 
-                    <androidx.appcompat.widget.AppCompatEditText
-                        android:id="@+id/inputDestination"
+                    <AutoCompleteTextView
+                        android:id="@+id/destination_spinner"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/destination_"
@@ -329,7 +341,7 @@
                         android:layout_weight="20" />
 
                     <Button
-                        android:id="@+id/next_add_shipment"
+                        android:id="@+id/save_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
