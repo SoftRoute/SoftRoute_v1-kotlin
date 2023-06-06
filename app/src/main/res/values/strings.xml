@@ -81,4 +81,5 @@
     <string name="manage_destination">Manage Destination</string>
     <string name="destination_name">Destination</string>
     <string name="delete_destination">Eliminar</string>
+    <string name="save">save</string>
 </resources>

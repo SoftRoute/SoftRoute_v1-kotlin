@@ -1,31 +1,37 @@
 package com.example.softroute_v1.controller.fragments.admin
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
-import androidx.appcompat.widget.AppCompatEditText
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Spinner
+import android.widget.Toast
 import com.example.softroute_v1.R
-import com.example.softroute_v1.controller.retrofitApiConsume.Constants.Constants.Companion.BASE_URL
-import com.example.softroute_v1.controller.retrofitApiConsume.Shipment.Model.*
-import com.example.softroute_v1.controller.retrofitApiConsume.Shipment.Service.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
-import org.w3c.dom.Text
+import com.example.softroute_v1.controller.retrofitApiConsume.Shipment.Model.Consignee
+import com.example.softroute_v1.controller.retrofitApiConsume.Shipment.Model.Destination
+import com.example.softroute_v1.controller.retrofitApiConsume.Shipment.Model.Document
+import com.example.softroute_v1.controller.retrofitApiConsume.Shipment.Model.Sender
+import com.example.softroute_v1.controller.retrofitApiConsume.Shipment.Model.Shipment
+import com.example.softroute_v1.controller.retrofitApiConsume.Shipment.Model.TypeOfPackage
+import com.example.softroute_v1.controller.retrofitApiConsume.Shipment.Service.ConsigneeApiService
+import com.example.softroute_v1.controller.retrofitApiConsume.Shipment.Service.DestinationApiService
+import com.example.softroute_v1.controller.retrofitApiConsume.Shipment.Service.DocumentApiService
+import com.example.softroute_v1.controller.retrofitApiConsume.Shipment.Service.SenderApiService
+import com.example.softroute_v1.controller.retrofitApiConsume.Shipment.Service.ShipmentApiService
+import com.example.softroute_v1.controller.retrofitApiConsume.Shipment.Service.TypeOfPackegeApiService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.util.*
-
 
 class AdminAddShipmentFragment : Fragment() {
+
     private lateinit var retrofit: Retrofit
     private lateinit var shipmentApiService: ShipmentApiService
     private lateinit var destinoApiService: DestinationApiService
@@ -34,33 +40,16 @@ class AdminAddShipmentFragment : Fragment() {
     private lateinit var tipoDePaqueteApiService: TypeOfPackegeApiService
     private lateinit var documentoApiService: DocumentApiService
 
-    private lateinit var destinoSpinner: AutoCompleteTextView
-    private lateinit var consigneesSpinner: AutoCompleteTextView
-    private lateinit var senderSpinner: AutoCompleteTextView
-    private lateinit var typeOfPackageSpinner: AutoCompleteTextView
-    private lateinit var documentSpinner: AutoCompleteTextView
+    private lateinit var destinoSpinner: Spinner
+    private lateinit var consigneesSpinner: Spinner
+    private lateinit var senderSpinner: Spinner
+    private lateinit var typeOfPackageSpinner: Spinner
+    private lateinit var documentSpinner: Spinner
 
-    private lateinit var idEditText: AppCompatEditText
-    private lateinit var descriptionEditText: AppCompatEditText
-    private lateinit var quantityEditText: AppCompatEditText
-    private lateinit var weightEditText: AppCompatEditText
-    private lateinit var freightEditText: AppCompatEditText
-    private lateinit var dateEditText: AppCompatEditText
+    private lateinit var idEditText: EditText
+    private lateinit var descriptionEditText: EditText
+    private lateinit var quantityEditText: EditText
 
-//    private lateinit var autoCompletedText: AutoCompleteTextView
-//    private lateinit var documentShipment: AutoCompleteTextView
-//    //private lateinit var dateShipment: DatePicker
-//    private lateinit var weightShipment:AppCompatEditText
-//    private lateinit var quantityShipment:AppCompatEditText
-//    private lateinit var descriptionShipment:AppCompatEditText
-//    private lateinit var freightShipment: AppCompatEditText
-//    private lateinit var nameSenderShipment:AppCompatEditText
-//    private lateinit var emailSenderShipment:AppCompatEditText
-//    private lateinit var nameConsigneeShipment:AppCompatEditText
-//    private lateinit var emailConsigneeShipment:AppCompatEditText
-//    private lateinit var dniConsigneeShipment:AppCompatEditText
-//    private lateinit var destinationShipment:AppCompatEditText
-//    private lateinit var dateShipment:AppCompatEditText
 
     var destinoId : Int = 0
     var consignatarioId : Int = 0
@@ -68,19 +57,14 @@ class AdminAddShipmentFragment : Fragment() {
     var tipoDePaqueteId : Int = 0
     var documentId : Int = 0
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_admin_add_shipment, container, false)
-
-
         destinoSpinner = view.findViewById(R.id.destination_spinner)
 
         consigneesSpinner = view.findViewById(R.id.consignatario_spinner)
@@ -88,13 +72,9 @@ class AdminAddShipmentFragment : Fragment() {
         typeOfPackageSpinner = view.findViewById(R.id.tipopaquete_spinner)
         documentSpinner = view.findViewById(R.id.documento_spinner)
 
+        //idEditText = view.findViewById(R.id.id_shipment_edit_text)
         descriptionEditText = view.findViewById(R.id.description_edit_text)
         quantityEditText = view.findViewById(R.id.quantity_edit_text)
-        weightEditText=view.findViewById(R.id.peso_edit_text)
-        freightEditText=view.findViewById(R.id.flete_edit_text)
-        dateEditText=view.findViewById(R.id.inputDate)
-
-
 
         // Configurar Retrofit
         retrofit = Retrofit.Builder()
@@ -122,8 +102,31 @@ class AdminAddShipmentFragment : Fragment() {
             saveShipment()
         }
 
-
         return view
+    }
+
+
+
+
+    private fun saveShipment() {
+        //val destinoId = (destinoSpinner.selectedItem as Destination).id.toInt()
+        val description = descriptionEditText.text.toString().trim()
+        val quantity = quantityEditText.text.toString().trim().toInt()
+
+        val newShipment = Shipment(0, description, quantity,1,2,"04/05/2023" , destinoId,consignatarioId,remitenteId,tipoDePaqueteId,documentId)
+
+        shipmentApiService.createShipment(newShipment).enqueue(object : Callback<Shipment> {
+            override fun onResponse(call: Call<Shipment>, response: Response<Shipment>) {
+                if (response.isSuccessful) {
+                    val createdShipment = response.body()
+                    Toast.makeText(requireContext(), "Se ha creado el envio : ${createdShipment?.id}", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<Shipment>, t: Throwable) {
+                Toast.makeText(requireContext(), "Error al crear Shipment", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 
     private fun loadDestinos() {
@@ -226,7 +229,7 @@ class AdminAddShipmentFragment : Fragment() {
         val adapter =
             ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, nombres)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        documentSpinner.setAdapter(adapter)
+        documentSpinner.adapter = adapter
 
         documentSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
@@ -245,7 +248,7 @@ class AdminAddShipmentFragment : Fragment() {
         val adapter =
             ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, nombres)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        typeOfPackageSpinner.setAdapter(adapter)
+        typeOfPackageSpinner.adapter = adapter
 
         typeOfPackageSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
@@ -265,7 +268,7 @@ class AdminAddShipmentFragment : Fragment() {
         val adapter =
             ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, nombres)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        senderSpinner.setAdapter(adapter)
+        senderSpinner.adapter = adapter
 
         senderSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
@@ -286,7 +289,7 @@ class AdminAddShipmentFragment : Fragment() {
         val adapter =
             ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, consigneeTitles)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        consigneesSpinner.setAdapter(adapter)
+        consigneesSpinner.adapter = adapter
 
         consigneesSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
@@ -306,7 +309,7 @@ class AdminAddShipmentFragment : Fragment() {
         val adapter =
             ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, destinationTitles)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        destinoSpinner.setAdapter(adapter)
+        destinoSpinner.adapter = adapter
 
         destinoSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
@@ -318,39 +321,6 @@ class AdminAddShipmentFragment : Fragment() {
                 // No se seleccionó ningún elemento
             }
         }
-    }
-
-    private fun saveShipment() {
-//        val description = descriptionEditText.text.toString().trim()
-//        val quantity = quantityEditText.text.toString().trim().toInt()
-//        val weight=weightEditText.text.toString().trim().toInt()
-//        val freight=freightEditText.text.toString().trim().toInt()
-//        val date=dateEditText.text.toString()
-//
-//        val newShipment = Shipment(0,description,quantity,freight,weight,date,destinoId,consignatarioId, remitenteId,tipoDePaqueteId,documentId)
-
-        val description = descriptionEditText.text.toString().trim()
-        val quantity = quantityEditText.text.toString().trim().toInt()
-
-        val newShipment = Shipment(0, description, quantity,1,2,"04/05/2023" , destinoId,consignatarioId,remitenteId,tipoDePaqueteId,documentId)
-
-
-        shipmentApiService.createShipment(newShipment).enqueue(object : Callback<Shipment> {
-
-            override fun onResponse(call: Call<Shipment>, response: Response<Shipment>) {
-                if (response.isSuccessful) {
-
-                    val createdShipment = response.body()
-                    Toast.makeText(requireContext(), "Se ha creado el envio : ${createdShipment?.id}", Toast.LENGTH_SHORT).show()
-                }
-            }
-
-            override fun onFailure(call: Call<Shipment>, t: Throwable) {
-                Toast.makeText(requireContext(), "Error al crear Shipment", Toast.LENGTH_SHORT).show()
-            }
-
-
-        })
     }
 
 
